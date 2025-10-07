@@ -3,7 +3,6 @@ from dash import html, dcc
 import plotly.graph_objects as go
 import numpy as np
 
-# ✅ Ahora esta será la página 1
 dash.register_page(__name__, path='/pagina1', name='Página 1')
 
 #############################################
