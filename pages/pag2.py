@@ -98,7 +98,7 @@ fig.add_shape(type="line", x0=-15, x1=15.5, y0=0, y1=0,
 fig.add_shape(type="line", x0=0, x1=0, y0=-200_000, y1=1_500_000,
               line=dict(color='rgb(184,187,38)', width=2))
 
-fig.show()
+
 
 
 layout = html.Div(children=[
