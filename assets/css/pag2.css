@@ -87,12 +87,14 @@
 }
 
 /* ---------- RESPONSIVE ---------- */
+
+
 @media (max-width: 900px) {
   .page-container {
-    padding: 10px;
+    flex-direction: column;        /* ⬅️ igual que en base.css */
   }
   .page-container .content.left,
   .page-container .content.right {
-    transform: none !important;
+    width: 100%;                   /* ⬅️ ocupa todo el ancho */
   }
 }

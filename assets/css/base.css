@@ -20,10 +20,11 @@
   --text-main: rgb(235, 219, 178);
   --text-muted: rgb(213, 196, 161);
   --accent-amber: rgb(250, 189, 47);
-  --accent-blue: rgb(80, 160, 255);
+  --accent-blue: rgb(255, 252, 80);
   --border: rgb(102, 92, 84);
   --shadow: rgba(0, 0, 0, 0.35);
 }
+
 
 /* ---------- RESET Y TIPOGRAFÍA ---------- */
 *, *::before, *::after {

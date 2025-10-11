@@ -1,5 +1,5 @@
 import dash
-from dash import html, dcc, Input, Output, State, callback
+from dash import html, dcc, Input, Output, callback, no_update
 import numpy as np
 import plotly.graph_objects as go
 
@@ -47,7 +47,7 @@ $$
             dcc.Slider(
                 id="slider-p0",
                 min=1, max=2_000_000, step=1_000, value=200,
-                tooltip={"always_visible": False, "placement": "bottom"},  # OFF
+                tooltip={"always_visible": False, "placement": "bottom"},
                 className="dash-slider"
             ),
         ], className="input-group"),
@@ -59,7 +59,7 @@ $$
             dcc.Slider(
                 id="slider-r",
                 min=-0.5, max=0.5, step=0.001, value=0.04,
-                tooltip={"always_visible": False, "placement": "bottom"},  # OFF
+                tooltip={"always_visible": False, "placement": "bottom"},
                 className="dash-slider"
             ),
         ], className="input-group"),
@@ -71,7 +71,7 @@ $$
             dcc.Slider(
                 id="slider-t",
                 min=1, max=200, step=1, value=100,
-                tooltip={"always_visible": False, "placement": "bottom"},  # OFF
+                tooltip={"always_visible": False, "placement": "bottom"},
                 className="dash-slider"
             ),
         ], className="input-group"),
@@ -87,47 +87,64 @@ $$
 
 
 # ==================================================
-# Callback — sincroniza sliders e inputs
+# SINCRONIZACIÓN SIN CICLOS (un callback por pareja)
 # ==================================================
 @callback(
-    Output("input-p0", "value"), Output("val-p0", "children"), Output("slider-p0", "value"),
-    Output("input-r", "value"), Output("val-r", "children"), Output("slider-r", "value"),
-    Output("input-t", "value"), Output("val-t", "children"), Output("slider-t", "value"),
-    Input("slider-p0", "value"), Input("slider-r", "value"), Input("slider-t", "value"),
-    Input("input-p0", "value"), Input("input-r", "value"), Input("input-t", "value")
+    Output('input-p0', 'value'), Output('slider-p0', 'value'),
+    Input('input-p0', 'value'),  Input('slider-p0', 'value'),
+    prevent_initial_call=True
 )
-def sync_all(p0_s, r_s, t_s, p0_i, r_i, t_i):
-    ctx = dash.callback_context
-    triggered = ctx.triggered[0]["prop_id"].split(".")[0] if ctx.triggered else None
+def sync_p0(p0_in, p0_sl):
+    from dash import callback_context as ctx
+    trig = ctx.triggered[0]['prop_id'].split('.')[0] if ctx.triggered else None
+    if trig == 'input-p0':   # editaste el input → mueve el slider
+        return no_update, p0_in
+    if trig == 'slider-p0':  # moviste el slider → mueve el input
+        return p0_sl, no_update
+    return no_update, no_update
 
-    if triggered in ["input-p0", "input-r", "input-t"]:
-        try: p0 = float(p0_i)
-        except: p0 = p0_s
-        try: r = float(r_i)
-        except: r = r_s
-        try: t = float(t_i)
-        except: t = t_s
-    else:
-        p0, r, t = p0_s, r_s, t_s
+@callback(
+    Output('input-r', 'value'), Output('slider-r', 'value'),
+    Input('input-r', 'value'),  Input('slider-r', 'value'),
+    prevent_initial_call=True
+)
+def sync_r(r_in, r_sl):
+    from dash import callback_context as ctx
+    trig = ctx.triggered[0]['prop_id'].split('.')[0] if ctx.triggered else None
+    if trig == 'input-r':
+        return no_update, r_in
+    if trig == 'slider-r':
+        return r_sl, no_update
+    return no_update, no_update
 
-    fmt_int = lambda x: f" — {int(x):,}".replace(",", " ")
-    fmt_float = lambda x: f" — {x:.4f}"
-
-    return p0, fmt_int(p0), p0, r, fmt_float(r), r, t, fmt_int(t), t
+@callback(
+    Output('input-t', 'value'), Output('slider-t', 'value'),
+    Input('input-t', 'value'),  Input('slider-t', 'value'),
+    prevent_initial_call=True
+)
+def sync_t(t_in, t_sl):
+    from dash import callback_context as ctx
+    trig = ctx.triggered[0]['prop_id'].split('.')[0] if ctx.triggered else None
+    if trig == 'input-t':
+        return no_update, t_in
+    if trig == 'slider-t':
+        return t_sl, no_update
+    return no_update, no_update
 
 
 # ==================================================
-# Callback — gráfico exponencial
+# Callback — gráfico (depende solo de los INPUTS)
 # ==================================================
 @callback(
     Output('grafica-poblacion', 'figure'),
+    Input('input-p0', 'value'),
+    Input('input-r',  'value'),
+    Input('input-t',  'value'),
     Input('btn-generar', 'n_clicks'),
-    State('input-p0', 'value'),
-    State('input-r', 'value'),
-    State('input-t', 'value'),
     prevent_initial_call=False
 )
-def actualizar_grafica(n_clicks, P0, r, t_max):
+def actualizar_grafica(P0, r, t_max, _n):
+    # Sanitización
     try: P0 = float(P0)
     except: P0 = 1.0
     try: r = float(r)
@@ -139,64 +156,54 @@ def actualizar_grafica(n_clicks, P0, r, t_max):
 
     t = np.linspace(0, t_max, 15)
     P = P0 * np.exp(r * t)
+    y_max = float(np.nanmax(P)) or 1.0
+    if y_max <= 0: y_max = 1.0
 
     trace_exp = go.Scatter(
         x=t, y=P,
         mode='lines+markers',
-        line=dict(color='rgb(80,160,255)', width=3),
-        marker=dict(color='rgb(50,120,220)', symbol='square', size=6),
+        line=dict(dash='dot', color='rgb(235, 219, 178)', width=2),
+        marker=dict(color='rgb(180, 205, 186)', symbol='square', size=8),
         name='P(t) = P₀·e^{rt}',
-        hovertemplate='t = %{x:.2f}<br>P(t) = %{y:.2f}<extra></extra>'
+        hovertemplate='t: %{x:.2f}<br>P(t): %{y:.2f}<extra></extra>'
     )
 
     fig = go.Figure(data=[trace_exp])
-    y_max = float(np.nanmax(P))
-    if y_max <= 0: y_max = 1.0
-
     fig.update_layout(
-        title=dict(text="<b>Evolución poblacional (Exponencial)</b>",
-                   font=dict(size=20, color='rgb(250,189,47)'), x=0.5),
+        title=dict(
+            text="<b>Evolución poblacional (Exponencial)</b>",
+            font=dict(size=20, color='rgb(250, 189, 47)'),
+            x=0.5, y=0.93
+        ),
         xaxis_title='Tiempo (t)',
         yaxis_title='Población P(t)',
-        margin=dict(l=40, r=40, t=50, b=40),
-        paper_bgcolor='rgb(40,40,40)',
-        plot_bgcolor='rgb(50,48,47)',
-        font=dict(family='Outfit', size=12, color='rgb(213,196,161)'),
-        legend=dict(bgcolor='rgba(0,0,0,0)')
+        margin=dict(l=40, r=40, t=90, b=40),
+        paper_bgcolor='rgb(40, 40, 40)',
+        plot_bgcolor='rgb(50, 48, 47)',
+        font=dict(family='Outfit', size=12, color='rgb(213, 196, 161)'),
+        legend=dict(orientation='h', yanchor='bottom', y=1.15,
+                    xanchor='center', x=0.5, bgcolor='rgba(0,0,0,0)')
     )
-
-    fig.update_xaxes(
-        showgrid=True, gridwidth=1, gridcolor='rgb(80,73,69)',
-        zeroline=True, zerolinewidth=2, zerolinecolor='rgb(184,187,38)',
-        showline=True, linecolor='rgb(102,92,84)', linewidth=2, mirror=True
-    )
-    fig.update_yaxes(
-        showgrid=True, gridwidth=1, gridcolor='rgb(80,73,69)',
-        zeroline=True, zerolinewidth=2, zerolinecolor='rgb(184,187,38)',
-        showline=True, linecolor='rgb(102,92,84)', linewidth=2, mirror=True,
-        range=[0, y_max * 1.12]
-    )
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgb(80, 73, 69)',
+                     zeroline=True, zerolinewidth=2, zerolinecolor='rgb(184, 187, 38)',
+                     showline=True, linecolor='rgb(102, 92, 84)', linewidth=2, mirror=True)
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgb(80, 73, 69)',
+                     zeroline=True, zerolinewidth=2, zerolinecolor='rgb(184, 187, 38)',
+                     showline=True, linecolor='rgb(102, 92, 84)', linewidth=2, mirror=True,
+                     range=[0, y_max * 1.12])
 
     fig.add_shape(type="line", x0=0, x1=t_max * 1.02, y0=0, y1=0,
-                  line=dict(color='rgb(184,187,38)', width=2))
+                  line=dict(color='rgb(184, 187, 38)', width=2))
     fig.add_shape(type="line", x0=0, x1=0, y0=0, y1=y_max * 1.12,
-                  line=dict(color='rgb(184,187,38)', width=2))
+                  line=dict(color='rgb(184, 187, 38)', width=2))
 
-    fig.add_annotation(
-        x=0, y=P0,
-        text=f"P₀ = {P0:.2f}",
-        showarrow=True, arrowhead=2, ax=40, ay=-30,
-        font=dict(color='rgb(80,160,255)', size=12),
-        bgcolor='rgba(50,48,47,0.5)'
-    )
+    fig.add_annotation(x=0, y=P0, text=f"P₀ = {P0:.2f}",
+                       showarrow=True, arrowhead=2, ax=40, ay=-30,
+                       font=dict(color='rgb(235, 219, 178)', size=12),
+                       bgcolor='rgba(50, 48, 47, 0.5)')
+
     idx = max(0, min(len(P)-1, int(len(P)*0.7)))
-    fig.add_annotation(
-        x=t[idx], y=P[idx],
-        text=f"r = {r:.4f}",
-        showarrow=False,
-        font=dict(color='rgb(250,189,47)', size=13),
-        bgcolor='rgba(50,48,47,0.5)',
-        yshift=18
-    )
-
+    fig.add_annotation(x=t[idx], y=P[idx], text=f"r = {r:.4f}",
+                       showarrow=False, font=dict(color='rgb(235, 219, 178)', size=13),
+                       bgcolor='rgba(50, 48, 47, 0.5)', yshift=18)
     return fig

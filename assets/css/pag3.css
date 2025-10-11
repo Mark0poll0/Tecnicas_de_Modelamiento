@@ -16,6 +16,8 @@
   padding: 48px 24px;
   max-width: 1750px;
   margin: 0 auto;
+  /* AÑADIDO: Permite que los elementos se envuelvan si no hay espacio, mejorando la fluidez */
+  flex-wrap: wrap; 
 }
 
 .page3-container .content.left,
@@ -38,22 +40,27 @@
   padding: 28px 32px;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------- RESPONSIVE (CORREGIDO) ---------- */
 @media (max-width: 900px) {
   .page3-container {
     flex-direction: column;
     gap: 24px;
-    max-width: 95%;
+    /* CORRECCIÓN: Se reduce el padding en los lados para pantallas pequeñas */
+    padding: 24px 16px; 
+    /* CORRECCIÓN: Se asegura que los items se estiren para ocupar el ancho */
+    align-items: stretch; 
   }
 
   .page3-container .content.left,
   .page3-container .content.right {
+    /* CORRECCIÓN: Se redefine 'flex-basis' para que cada elemento ocupe el 100% del ancho en la columna */
+    flex-basis: 100%; 
     max-width: 100%;
   }
 }
 
 /* ===========================================================
-    SLIDERS ESTILO GRUBOX :v 
+   SLIDERS ESTILO GRUBOX :v 
    =========================================================== */
 
 /* Contenedor base */

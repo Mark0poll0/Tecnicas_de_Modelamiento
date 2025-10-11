@@ -1,0 +1,69 @@
+/* ===========================================================
+  PAGE1.CSS — Página 1: Estilo Gruvbox Clásico sin Glow
+   -----------------------------------------------------------
+   - Sombras profundas (sin luces neón)
+   - Paleta Gruvbox clásica: cálida, terrosa, mate
+   =========================================================== */
+
+/* ---------- BLOQUES DE CONTENIDO ---------- */
+.page-container .content.left,
+.page-container .content.right {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
+  background-color: rgb(50, 48, 47);         /* #32302f */
+  border: 1px solid rgb(63, 62, 61);        /* #665c54 */
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover con sombra más marcada y elevación */
+.page-container .content.left:hover,
+.page-container .content.right:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.45),
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 10px rgba(0, 0, 0, 0.15);
+  border-color: rgba(219, 213, 213, 0.25);   /* leve acento cálido */
+  z-index: 5;
+}
+
+/* ---------- GRÁFICO ---------- */
+.page-container .content.right .dash-graph {
+  background-color: rgb(45, 42, 40);       /* más oscuro */
+  border-radius: 6px;
+  border: 1px solid rgb(80, 73, 69);
+  min-height: 360px;
+  width: 100%;
+  flex: 1 1 auto;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- TÍTULOS ---------- */
+.page-container .title {
+  color: #fabd2f;                          /* ámbar Gruvbox */
+  text-shadow: none;                       /* sin glow */
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.page-container {
+  background: radial-gradient(
+    circle at 40% 45%,
+    rgba(60, 56, 54, 0.18) 0%,
+    rgb(29, 32, 33) 100%
+  );
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .page-container {
+    flex-direction: column;
+  }
+  .page-container .content.left,
+  .page-container .content.right {
+    width: 100%;
+  }
+}

@@ -12,12 +12,12 @@
 :root {
   --bg-0: rgb(40, 40, 40);        /* #282828 */
   --bg-1: rgb(50, 48, 47);        /* #32302f */
-  --bg-2: rgb(60, 56, 54);        /* #3c3836 */
+  --bg-2: rgb(156, 52, 0);        /* #3c3836 */
   --fg:   rgb(235, 219, 178);     /* #ebdbb2 */
   --muted: rgba(235, 219, 178, 0.65);
-  --border: rgba(235, 219, 178, 0.15);
+  --border: rgba(158, 125, 43, 0.15);
   --shadow: rgba(0, 0, 0, 0.35);
-  --amber: rgb(250, 189, 47);
+  --amber: rgba(250, 186, 47, 0.521);
   --amber-soft: rgba(250, 189, 47, 0.35);
 
   /* Compatibilidad con tus variables previas */
@@ -223,7 +223,7 @@
 
 @media (max-width: 900px) {
   .about-page {
-    flex-direction: column;     /* 📱 apila */
+    flex-direction: column;     
     align-items: center;
     gap: 20px;
   }
