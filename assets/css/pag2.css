@@ -1,0 +1,98 @@
+/* ===========================================================
+   🌿 PAGE2.CSS — Página 2: Modelo Logístico y Capacidad de Carga
+   -----------------------------------------------------------
+   Incluye:
+   - Efectos de color azul-dorado
+   - Sombra y profundidad diferenciada
+   - Tipografía y bordes refinados
+   =========================================================== */
+
+/* ---------- ESTRUCTURA LOCAL ---------- */
+.page-container {
+  background: linear-gradient(
+    145deg,
+    rgba(50,48,47,0.95) 0%,
+    rgba(40,40,40,1) 100%
+  );
+  border: 1px solid var(--border);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    inset 0 0 10px rgba(80,160,255,0.08);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* ---------- TÍTULOS ---------- */
+.page-container .title {
+  color: var(--accent-blue);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 18px;
+  text-shadow:
+    0 0 8px rgba(80,160,255,0.4),
+    0 0 4px rgba(250,189,47,0.25);
+}
+
+/* ---------- BLOQUES DE CONTENIDO ---------- */
+.page-container .content.left,
+.page-container .content.right {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border-radius: 10px;
+  border: 1px solid rgba(80,160,255,0.2);
+  background-color: rgba(50,48,47,0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.page-container .content.left:hover,
+.page-container .content.right:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 30px rgba(80,160,255,0.45),
+    0 0 40px rgba(250,189,47,0.2),
+    0 0 10px rgba(0,0,0,0.7);
+  border-color: rgba(80,160,255,0.35);
+  z-index: 5;
+}
+
+/* ---------- MARCADORES DE TEXTO ---------- */
+.page-container strong {
+  color: var(--accent-amber);
+}
+.page-container em {
+  color: var(--accent-blue);
+  font-style: normal;
+}
+
+/* ---------- GRÁFICO ---------- */
+.page-container .dash-graph {
+  background-color: var(--bg-med);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-height: 360px;
+  width: 100%;
+  box-shadow:
+    0 0 12px rgba(80,160,255,0.25),
+    inset 0 0 6px rgba(250,189,47,0.15);
+}
+
+/* ---------- ANOTACIONES (tooltip visual) ---------- */
+.annotation-box {
+  background: rgba(50,48,47,0.75);
+  color: var(--text-muted);
+  border-left: 3px solid var(--accent-amber);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .page-container {
+    padding: 10px;
+  }
+  .page-container .content.left,
+  .page-container .content.right {
+    transform: none !important;
+  }
+}

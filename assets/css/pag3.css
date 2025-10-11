@@ -1,0 +1,228 @@
+/* ===========================================================
+   PAGE3.CSS — Página 3: Modelo Exponencial Interactivo
+   -----------------------------------------------------------
+   Incluye:
+   - Layout ampliado con .page3-container
+   - Estilo de sliders Dash rc-slider
+   - Inputs numéricos y botón “Generar gráfica”
+   =========================================================== */
+
+/* ---------- LAYOUT PRINCIPAL ---------- */
+.page3-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 48px 24px;
+  max-width: 1750px;
+  margin: 0 auto;
+}
+
+.page3-container .content.left,
+.page3-container .content.right {
+  flex: 1 1 750px;
+  max-width: 800px;
+  min-height: 420px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.page3-container .content.left {
+  background-color: var(--bg-light);
+  padding: 32px 42px;
+}
+
+.page3-container .content.right {
+  background-color: var(--bg-med);
+  padding: 28px 32px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .page3-container {
+    flex-direction: column;
+    gap: 24px;
+    max-width: 95%;
+  }
+
+  .page3-container .content.left,
+  .page3-container .content.right {
+    max-width: 100%;
+  }
+}
+
+/* ===========================================================
+    SLIDERS ESTILO GRUBOX :v 
+   =========================================================== */
+
+/* Contenedor base */
+.page3-container .dash-slider {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page3-container .rc-slider {
+  position: relative;
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Riel base */
+.page3-container .rc-slider-rail {
+  background-color: rgb(55, 52, 50);
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* Track activo */
+.page3-container .rc-slider-track {
+  background-color: rgb(191, 168, 139);
+  height: 4px;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 3px rgba(191, 168, 139, 0.4);
+}
+
+.page3-container .rc-slider:hover .rc-slider-track {
+  background-color: rgb(218, 191, 152);
+  box-shadow: 0 0 5px rgba(218, 191, 152, 0.55);
+}
+
+/* Perilla (handle) */
+.page3-container .rc-slider-handle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(210, 200, 175);
+  border: 1px solid rgb(90, 85, 80);
+  margin-top: -6px;
+  opacity: 1;
+  transition: transform 0.25s ease, background-color 0.25s ease,
+              box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.page3-container .rc-slider-handle:hover,
+.page3-container .rc-slider-handle:focus,
+.page3-container .rc-slider-handle-dragging {
+  background-color: var(--text-main);
+  border-color: var(--accent-amber);
+  transform: scale(1.35);
+  box-shadow: 0 0 12px rgba(250, 189, 47, 0.55);
+  cursor: grab;
+}
+
+/* Tooltip (oculto, pero elegante al hover) */
+.page3-container .rc-slider-handle::after {
+  content: attr(aria-valuenow);
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -6px);
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.2;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.25s ease;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+.page3-container .rc-slider-handle:hover::after,
+.page3-container .rc-slider-handle:focus::after,
+.page3-container .rc-slider-handle-dragging::after {
+  opacity: 1;
+  transform: translate(-50%, -10px);
+}
+
+/* Elimina marcas innecesarias */
+.page3-container .rc-slider-step,
+.page3-container .rc-slider-dot,
+.page3-container .rc-slider-mark,
+.page3-container .rc-slider-mark-text {
+  display: none !important;
+}
+
+/* ===========================================================
+   INPUTS Y BOTÓN
+   =========================================================== */
+
+/* Input numérico */
+.input-field {
+  background-color: var(--bg-med);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  width: 120px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent-amber);
+  background-color: var(--bg-light);
+  box-shadow:
+    0 0 10px rgba(250, 189, 47, 0.4),
+    0 0 6px rgba(250, 189, 47, 0.25);
+}
+
+/* Etiquetas Markdown dinámicas */
+.label-md {
+  color: var(--accent-amber);
+  font-weight: 600;
+  margin-right: 6px;
+}
+.label-val {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Grupo input + slider */
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Botón generar */
+.btn-generar {
+  background-color: rgb(146, 131, 116);
+  color: rgb(29, 32, 33);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+}
+
+.btn-generar:hover {
+  background-color: rgb(189, 174, 147);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(250, 189, 47, 0.25);
+}
+
+.btn-generar:active {
+  transform: scale(0.97);
+  background-color: var(--accent-amber);
+  color: rgb(29, 32, 33);
+  box-shadow:
+    0 0 18px rgba(250, 189, 47, 0.65),
+    0 0 35px rgba(250, 189, 47, 0.4);
+}

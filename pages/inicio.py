@@ -1,20 +1,23 @@
 import dash
 from dash import html
 
-dash.register_page(__name__, path="/", name="Sobre mí")
+# ------------------------------------------------------------
+# Página "Inicio" (Sobre mí)
+# ------------------------------------------------------------
+dash.register_page(__name__, path="/", name="Inicio")
 
 layout = html.Div(
     className="page-container about-page",
     children=[
-        # ======= CABECERA =======
+        # ================== COLUMNA IZQUIERDA ==================
         html.Div(
-            className="about-header",
+            className="about-left",
             children=[
                 html.H1("Sobre mí", className="title"),
                 html.Div(
                     className="about-photo-box",
                     children=html.Img(
-                        src="/assets/images/foto.jpg",
+                        src="assets/images/perfil.jpg",  
                         alt="Foto de perfil",
                         className="about-photo"
                     )
@@ -22,9 +25,12 @@ layout = html.Div(
             ],
         ),
 
-        # ======= CONTENIDO =======
+        # ===== Separador vertical entre columnas (desktop) =====
+        html.Div(className="about-divider"),
+
+        # ================== COLUMNA DERECHA ==================
         html.Div(
-            className="about-content",
+            className="about-right",
             children=[
                 html.H2("Mark Quispe Gonzales", className="about-name"),
 
@@ -38,6 +44,7 @@ layout = html.Div(
                     className="content"
                 ),
 
+                # ---------- GRID DE TARJETAS ----------
                 html.Div(
                     className="about-grid",
                     children=[
@@ -86,16 +93,16 @@ layout = html.Div(
                                 ])
                             ],
                         ),
-
-                        # ======= TARJETA DE ACTUALIZACIÓN DESTACADA =======
+                        # ---------- TARJETA DESTACADA ----------
                         html.Div(
                             className="about-card update",
                             children=[
-                                html.H3("⚡ ACTUALIZACIÓN DE PAGINA", className="about-card-title"),
+                                html.H3("⚡ ACTUALIZACIÓN DE PÁGINA", className="about-card-title"),
                                 html.Ul([
-                                    html.Li("Se integraron sliders."),
-                                    html.Li("Se añadió un input en la gráfica de la pág. 3."),
-                                    html.Li("Se integró el modelo exponencial."),
+                                    html.Li("Se integraron Range sliders."),
+                                    html.Li("Se añadió  inputs en la gráfica de la pág. 3."),
+                                    html.Li("Se integró el modelo exponencial en la PAG 3."),
+                                    html.Li("Modulariza CSS del proyecto Dash en archivos por página."),
                                 ]),
                                 html.Small(
                                     "Última actualización: 10 de Octubre 2025",
