@@ -6,6 +6,7 @@ dash.register_page(__name__, path="/", name="Sobre mí")
 layout = html.Div(
     className="page-container about-page",
     children=[
+        # ======= CABECERA =======
         html.Div(
             className="about-header",
             children=[
@@ -21,6 +22,7 @@ layout = html.Div(
             ],
         ),
 
+        # ======= CONTENIDO =======
         html.Div(
             className="about-content",
             children=[
@@ -29,9 +31,9 @@ layout = html.Div(
                 html.P(
                     (
                         "Estudiante de Computación Científica en la UNMSM (Facultad de Ciencias "
-                        "Matemáticas). Reciente interes en el modelamiento matemático, data science y "
-                        "manejo de datos. Actualmente desarrollando pequeños proyectos en Python, "
-                        "Mejorando habilidades en  LaTeX."
+                        "Matemáticas). Reciente interés en el modelamiento matemático, data science y "
+                        "manejo de datos. Actualmente desarrollando pequeños proyectos en Python y "
+                        "mejorando habilidades en LaTeX."
                     ),
                     className="content"
                 ),
@@ -45,8 +47,8 @@ layout = html.Div(
                                 html.H3("Perfil", className="about-card-title"),
                                 html.Ul([
                                     html.Li("UNMSM — Computación Científica"),
-                                    html.Li("Ciclo: 6° "),
-                                    html.Li("Intereses: Redaccion en Latex, Portafolios,Sql para manejo de Datos "),
+                                    html.Li("Ciclo: 6°"),
+                                    html.Li("Intereses: Redacción en LaTeX, Portafolios, SQL para manejo de datos"),
                                 ])
                             ],
                         ),
@@ -56,7 +58,7 @@ layout = html.Div(
                                 html.H3("Habilidades", className="about-card-title"),
                                 html.Ul([
                                     html.Li("Python (NumPy, Pandas, Matplotlib, TensorFlow)"),
-                                    html.Li("Latex / ofimatica / C++"),
+                                    html.Li("LaTeX / Ofimática / C++"),
                                     html.Li("Git & GitHub"),
                                     html.Li("LaTeX (beamer, artículos)"),
                                 ])
@@ -67,8 +69,8 @@ layout = html.Div(
                             children=[
                                 html.H3("Proyectos recientes", className="about-card-title"),
                                 html.Ul([
-                                    html.Li("Animacion de un Sistema solar"),
-                                    html.Li("Web scrapping a pequeños datos publicos"),
+                                    html.Li("Animación de un Sistema Solar"),
+                                    html.Li("Web scraping a pequeños datos públicos"),
                                     html.Li("Dashboards y apps con Dash"),
                                 ])
                             ],
@@ -82,6 +84,23 @@ layout = html.Div(
                                     html.Li("GitHub: github.com/Mark0poll0"),
                                     html.Li("LinkedIn: linkedin.com/in/mark-quispe-gonzales"),
                                 ])
+                            ],
+                        ),
+
+                        # ======= TARJETA DE ACTUALIZACIÓN DESTACADA =======
+                        html.Div(
+                            className="about-card update",
+                            children=[
+                                html.H3("⚡ ACTUALIZACIÓN DE PAGINA", className="about-card-title"),
+                                html.Ul([
+                                    html.Li("Se integraron sliders."),
+                                    html.Li("Se añadió un input en la gráfica de la pág. 3."),
+                                    html.Li("Se integró el modelo exponencial."),
+                                ]),
+                                html.Small(
+                                    "Última actualización: 10 de Octubre 2025",
+                                    className="update-date"
+                                ),
                             ],
                         ),
                     ],

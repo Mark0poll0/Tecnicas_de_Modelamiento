@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+
+
 
 /* ===== Gruvbox (por Mark ; osea yo :v) ===== */
 *, *::before, *::after {
@@ -46,10 +49,10 @@ body {
   border-bottom: 1px solid rgb(102, 92, 84); /* #665c54 */
 }
 
-/* ---------- BOTONES (Gruvbox gris con hover ámbar suave) ---------- */
+/* ---------- BOTONES ---------- */
 .nav-link {
-  background-color: rgb(146, 131, 116);   /* #928374 - gris cálido base */
-  color: rgb(29, 32, 33);                 /* #1d2021 - texto oscuro */
+  background-color: rgb(146, 131, 116);
+  color: rgb(29, 32, 33);
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -57,43 +60,43 @@ body {
   font-size: 15px;
   transition: all 0.2s ease;
   display: inline-block;
-  border: 1px solid rgb(102, 92, 84);     /* #665c54 */
+  border: 1px solid rgb(102, 92, 84);
   box-shadow: 0 0 6px rgba(0,0,0,0.25);
 }
 
 .nav-link:hover {
-  background-color: rgb(189, 174, 147);   /* #bdae93 - gris con matiz ámbar */
+  background-color: rgb(189, 174, 147);
   color: rgb(29, 32, 33);
   transform: translateY(-2px);
 }
 
 .nav-link.active {
-  background-color: rgb(235, 219, 178);   /* #ebdbb2 - arena clara (activo) */
+  background-color: rgb(235, 219, 178);
   color: rgb(29, 32, 33);
   border: 1px solid rgb(102, 92, 84);
 }
 
 /* ---------- CONTENEDOR GENERAL DE PÁGINA ---------- */
 .page-container {
-  background-color: rgba(60, 56, 54, 0.65); /* #3c3836 con transparencia */
+  background-color: rgba(60, 56, 54, 0.65);
   border-radius: 8px;
   padding: 10px;
   margin: 10px 15px;
   display: flex;
-  align-items: stretch;   /* mantiene ambas columnas alineadas */
+  align-items: stretch;
   gap: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.35);
-  border: 1px solid rgb(102, 92, 84);       /* #665c54 */
+  border: 1px solid rgb(102, 92, 84);
 }
 
 /* ---------- BLOQUES DE CONTENIDO ---------- */
 .content {
-  background-color: rgb(50, 48, 47);        /* #32302f */
+  background-color: rgb(50, 48, 47);
   border-radius: 8px;
   padding: 15px;
-  color: rgb(213, 196, 161);                /* #d5c4a1 */
+  color: rgb(213, 196, 161);
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: flex;                            /* evita salto al montar */
+  display: flex;
   flex-direction: column;
 }
 
@@ -101,12 +104,12 @@ body {
 .content.left,
 .content.right {
   width: 50%;
-  min-height: 360px;   /* reserva espacio antes del render */
+  min-height: 360px;
 }
 
 /* ---------- TÍTULOS ---------- */
 .title {
-  color: rgb(235, 219, 178);                 /* #ebdbb2 */
+  color: rgb(235, 219, 178);
   font-weight: 600;
   text-align: center;
   margin-bottom: 12px;
@@ -114,14 +117,13 @@ body {
 
 /* ---------- GRÁFICO ---------- */
 .content.right .dash-graph {
-  background-color: rgb(80, 73, 69);         /* #504945 */
+  background-color: rgb(80, 73, 69);
   border-radius: 6px;
-  border: 1px solid rgb(102, 92, 84);        /* #665c54 */
-  min-height: 360px;                         /* reserva espacio fijo */
+  border: 1px solid rgb(102, 92, 84);
+  min-height: 360px;
   width: 100%;
-  flex: 1 1 auto;                            /* ocupa espacio restante */
+  flex: 1 1 auto;
 }
-
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
@@ -149,27 +151,21 @@ body {
 .about-photo-box {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border: 1px dashed rgba(235,219,178,0.35); /* #ebdbb2 */
+  border: 1px dashed rgba(235,219,178,0.35);
   border-radius: 16px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: rgba(60,56,54,0.35);           /* #3c3836 */
+  background: rgba(60,56,54,0.35);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4),
               inset 0 0 10px rgba(235,219,178,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .about-photo-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55),
-              0 0 10px rgba(235,219,178,0.2);
-}
-
-.about-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65),
+              0 0 10px rgba(235,219,178,0.15);
 }
 
 /* ---- CONTENIDO ---- */
@@ -192,18 +188,26 @@ body {
 
 .about-card {
   border: 1px solid rgba(235,219,178,0.15);
-  background: rgba(40,40,40,0.6);           /* #282828 */
+  background: rgba(40,40,40,0.6);
   border-radius: 14px;
   padding: 14px 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.35),
-              inset 0 0 6px rgba(235,219,178,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.35),
+    inset 0 0 6px rgba(235,219,178,0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
+/* 🖤 sombra más profunda (sin color) */
 .about-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.55),
-              0 0 8px rgba(235,219,178,0.2);
+  transform: translateY(-6px);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.8),
+    0 0 10px rgba(0,0,0,0.45),
+    inset 0 0 8px rgba(255,255,255,0.05);
+  border-color: rgba(235,219,178,0.25);
 }
 
 .about-card-title {
@@ -217,4 +221,268 @@ body {
   .about-wrapper { grid-template-columns: 1fr; }
   .about-photo-box { max-width: 360px; margin: 0 auto; }
   .about-grid { grid-template-columns: 1fr; }
+}
+
+/* ======= UTILIDADES ======= */
+.section { display: grid; gap: 12px; }
+.row     { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.grid-2  { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+.grid-3  { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 1fr; }
+
+@media (max-width: 980px){
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: rgba(50,48,47,0.85);
+  border: 1px solid rgb(102, 92, 84);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* ==== TARJETA DE ACTUALIZACIÓN DESTACADA ==== */
+.about-card.update {
+  grid-column: span 2;
+  border: 1px solid rgba(250,189,47,0.35);
+  background: linear-gradient(145deg, rgba(50,48,47,0.9), rgba(60,56,54,0.85));
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(250,189,47,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: soft-glow 5s ease-in-out infinite;
+  padding: 20px 24px;
+  font-size: 1.05rem;
+}
+
+/* efecto ámbar*/
+.about-card.update:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow:
+    0 0 50px rgba(250,189,47,0.75),
+    0 0 90px rgba(250,189,47,0.55),
+    inset 0 0 20px rgba(250,189,47,0.45);
+  border-color: rgba(250,189,47,0.65);
+  z-index: 10; /* la eleva visualmente sobre las demás */
+}
+
+@keyframes soft-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(250,189,47,0.25),
+                inset 0 0 6px rgba(250,189,47,0.25);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(250,189,47,0.45),
+                inset 0 0 10px rgba(250,189,47,0.35);
+  }
+}
+
+
+
+
+.about-card.update .about-card-title {
+  color: rgb(250,189,47);
+  text-shadow: 0 0 4px rgba(250,189,47,0.5);
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.about-card.update li {
+  line-height: 1.6;
+}
+
+.about-card.update li::before {
+  content: "•";
+  color: rgb(250,189,47);
+  margin-right: 6px;
+  text-shadow: 0 0 2px rgba(250,189,47,0.4);
+}
+
+.update-date {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(250,189,47,0.7);
+  text-align: right;
+  font-style: italic;
+}
+/* ===== EFECTO DE ZOOM Y SOMBRA PROFUNDA PARA PÁGINAs ===== */
+.page-container .content.left,
+.page-container .content.right {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Hover con zoom fuerte y sombra marcada */
+.page-container .content.left:hover,
+.page-container .content.right:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow:
+    0 0 35px rgba(0, 0, 0, 0.9),
+    0 0 80px rgba(0, 0, 0, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  z-index: 5; /* se eleva por encima del resto */
+  border-color: rgba(235, 219, 178, 0.25);
+}
+
+/* =========================================
+   SLIDER ESTILO GRUBOX MEJORADO + ANCHO 1.25x
+   ========================================= */
+
+/* ======== Contenedor general de la página 3 ======== */
+.page3-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;              /* un poco más de espacio entre cajas */
+  padding: 48px 24px;
+  max-width: 1750px;      /* 👈 25% más ancho que antes */
+  margin: 0 auto;
+}
+
+.page3-container .content.left,
+.page3-container .content.right {
+  flex: 1 1 750px;        /* 👈 base más grande */
+  max-width: 800px;       /* 👈 límite elegante */
+  min-height: 420px;
+}
+
+.page3-container .content.left {
+  background-color: rgb(60, 56, 54);
+  border-radius: 12px;
+  padding: 32px 42px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(80, 73, 69);
+}
+
+.page3-container .content.right {
+  background-color: rgb(50, 48, 47);
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(80, 73, 69);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .page3-container {
+    flex-direction: column;
+    gap: 24px;
+    max-width: 95%;
+  }
+
+  .page3-container .content.left,
+  .page3-container .content.right {
+    max-width: 100%;
+  }
+}
+
+/* ======== SLIDER ESTILO GRUBOX ======== */
+.page3-container .dash-slider {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page3-container .rc-slider {
+  position: relative;
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+}
+
+/* ======== Riel base ======== */
+.page3-container .rc-slider-rail {
+  background-color: rgb(55, 52, 50);
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* ======== Track activo ======== */
+.page3-container .rc-slider-track {
+  background-color: rgb(191, 168, 139);
+  height: 4px;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 3px rgba(191, 168, 139, 0.4);
+}
+
+.page3-container .rc-slider:hover .rc-slider-track {
+  background-color: rgb(218, 191, 152);
+  box-shadow: 0 0 5px rgba(218, 191, 152, 0.55);
+}
+
+/* ======== Perilla siempre visible ======== */
+.page3-container .rc-slider-handle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(210, 200, 175);
+  border: 1px solid rgb(90, 85, 80);
+  margin-top: -6px;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  box-shadow: 0 0 4px rgba(250, 189, 47, 0.0);
+}
+
+.page3-container .rc-slider-handle:hover,
+.page3-container .rc-slider-handle:focus,
+.page3-container .rc-slider-handle-dragging {
+  background-color: rgb(235, 219, 178);
+  border-color: rgb(250, 189, 47);
+  transform: scale(1.35);
+  box-shadow: 0 0 12px rgba(250, 189, 47, 0.55);
+  cursor: grab;
+}
+
+.page3-container .rc-slider-handle:focus,
+.page3-container .rc-slider-handle-click-focused {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 187, 38, 0.35),
+              0 0 12px rgba(250, 189, 47, 0.55);
+  border-color: rgb(184, 187, 38);
+}
+
+/* ======== Limpieza de marcas ======== */
+.page3-container .rc-slider-step,
+.page3-container .rc-slider-dot,
+.page3-container .rc-slider-mark,
+.page3-container .rc-slider-mark-text {
+  display: none !important;
+}
+
+/* ======== Tooltip/etiqueta personalizada ======== */
+.page3-container .rc-slider-tooltip { display: none !important; }
+
+.page3-container .rc-slider-handle::after {
+  content: attr(aria-valuenow);
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -6px);
+  background: rgb(45, 43, 41);
+  border: 1px solid rgb(90, 85, 80);
+  color: rgb(213, 196, 161);
+  font-size: 0.7rem;
+  line-height: 1.2;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.25s ease;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+.page3-container .rc-slider-handle:hover::after,
+.page3-container .rc-slider-handle:focus::after,
+.page3-container .rc-slider-handle-dragging::after {
+  opacity: 1;
+  transform: translate(-50%, -10px);
 }
