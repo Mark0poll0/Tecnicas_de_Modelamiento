@@ -1,0 +1,52 @@
+/* ===========================================================
+   PAGE4.CSS — Modelo SIR Epidemiológico
+   =========================================================== */
+
+.page5-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 118px 24px;
+  max-width: 3750px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.page5-container .content.left,
+.page5-container .content.right {
+  flex: 1 1 750px;
+  max-width: 800px;
+  min-height: 420px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.page5-container .content.left {
+  background-color: var(--bg-light);
+  padding: 32px 42px;
+}
+
+.page5-container .content.right {
+  background-color: var(--bg-med);
+  padding: 28px 32px;
+}
+
+@media (max-width: 900px) {
+  .page5-container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 16px;
+    align-items: stretch;
+  }
+
+  .page5-container .content.left,
+  .page5-container .content.right {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Reusa sliders, inputs y botones del pag3.css */
+@import url("pag3.css");

@@ -99,13 +99,13 @@ layout = html.Div(
                             children=[
                                 html.H3("⚡ ACTUALIZACIÓN DE PÁGINA", className="about-card-title"),
                                 html.Ul([
-                                    html.Li("Se integraron Range sliders."),
-                                    html.Li("Se añadió  inputs en la gráfica de la pág. 3."),
-                                    html.Li("Se integró el modelo exponencial en la PAG 3."),
-                                    html.Li("Modulariza CSS del proyecto Dash en archivos por página."),
+                                    html.Li("Se Agrego Modelo SIR y SEIR"),
+                                    html.Li("Las graficas SIR y SEIR en estos nuevos modelos se actualizan en tiempo real conforme uno mueve los valores"),
+                                    html.Li("Las graficas SIR y SEIR traen interpretacion que te actualiza conforme la grafica cambia en tiempo real"),
+
                                 ]),
                                 html.Small(
-                                    "Última actualización: 10 de Octubre 2025",
+                                    "Última actualización: 03 de Noviembre 2025",
                                     className="update-date"
                                 ),
                             ],
