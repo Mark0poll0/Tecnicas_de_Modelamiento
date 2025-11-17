@@ -1,0 +1,164 @@
+/* ===========================================================
+   PAG6.CSS — Modelo SIR Modificado (macOS + Gold Glow)
+   =========================================================== */
+
+/* ---------- CONTENEDORES PRINCIPALES ---------- */
+.page6-container .content.left,
+.page6-container .content.right {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.45s cubic-bezier(0.25, 1.25, 0.5, 1),
+              box-shadow 0.45s ease;
+}
+
+.page6-container .content:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ---------- TÍTULOS ---------- */
+.page6-container .title {
+  color: var(--accent-blue);
+  font-weight: 800;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+  animation: fadeInTitle 1.2s ease;
+}
+
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- ETIQUETAS ---------- */
+.page6-container label {
+  display: block;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.96rem;
+  margin-bottom: 6px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.page6-container label:hover {
+  color: var(--accent-blue);
+  transform: translateX(4px);
+}
+
+/* ---------- INPUTS ---------- */
+.page6-container .input-field {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  background: var(--panel-light);
+  margin-bottom: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 1.25, 0.5, 1);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.06);
+  color: var(--text);
+}
+
+.page6-container .input-field:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  background: var(--background);
+  transform: scale(1.03);
+  box-shadow:
+    0 0 10px rgba(0, 122, 255, 0.35),
+    inset 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ===========================================================
+   BOTÓN — Estilo normal beige + brillo dorado al pasar/activar
+   =========================================================== */
+
+/* Estado normal (idéntico al que te gusta) */
+.page6-container .btn-generar {
+  width: 100%;
+  background-color: rgb(202, 186, 150);  /* beige suave */
+  color: rgb(29, 32, 33);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover → brillo suave dorado */
+.page6-container .btn-generar:hover {
+  background-color: rgb(218, 201, 162);
+  transform: translateY(-2px);
+  box-shadow:
+      0 0 20px rgba(250, 189, 47, 0.45),
+      0 0 35px rgba(250, 189, 47, 0.30),
+      inset 0 0 5px rgba(255, 255, 255, 0.25);
+}
+
+/* Active → glow fuerte tipo “Reiniciar Valores Ejemplo” */
+.page6-container .btn-generar:active {
+  transform: scale(0.97);
+  background-color: rgb(237, 184, 60);
+  box-shadow:
+      0 0 35px rgba(250, 189, 47, 0.75),
+      inset 0 0 12px rgba(0,0,0,0.25);
+}
+
+/* ---------- TEXTO EXPLICATIVO ---------- */
+.page6-container .text-explain {
+  font-size: 0.94rem;
+  color: var(--text);
+  text-align: justify;
+  line-height: 1.65;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent-blue);
+  background: rgba(0, 122, 255, 0.07);
+  border-radius: 6px;
+  animation: fadeInText 1.4s ease;
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- GRÁFICA ---------- */
+#graficaSIR6 {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background-color: var(--panel-light);
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.06),
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.5s cubic-bezier(0.25, 1.25, 0.5, 1),
+              box-shadow 0.5s ease;
+}
+
+#graficaSIR6:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.12),
+    0 0 30px rgba(0, 122, 255, 0.15);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .page6-container {
+    flex-direction: column;
+  }
+  .page6-container .content.left,
+  .page6-container .content.right {
+    width: 100%;
+    transform: none;
+  }
+}

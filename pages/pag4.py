@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 # ==================================================
 # Registro de página
 # ==================================================
-dash.register_page(__name__, path='/pagina4', name='Modelo SIR')
+dash.register_page(__name__, path='/pagina4', name='Pagina 4')
 
 # ==================================================
 # Layout — Modelo SIR
