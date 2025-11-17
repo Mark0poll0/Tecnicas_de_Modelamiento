@@ -16,7 +16,7 @@ dash.register_page(__name__, path="/Proyecto2.1", name="PROYECTO 2.1")
 layout = html.Div([
     # ------------------------- IZQUIERDA -------------------------
     html.Div([
-        html.H2("Modelo SIR Modificado – Rumor", className="title"),
+        html.H2("Modelo SIR Modificado - ASIGNACION 2 - Rumor", className="title"),
 
         html.Label("Población total (N):"),
         dcc.Input(id="sirN", type="number", value=275, className="input-field"),

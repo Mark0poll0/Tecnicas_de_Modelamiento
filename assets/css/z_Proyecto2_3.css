@@ -1,0 +1,71 @@
+/* ================================================
+   ESTILOS EXCLUSIVOS PARA PROYECTO 2.3
+   ================================================ */
+
+.proyecto23 {
+  background-color: #f5f3ef !important; /* Fondo crema */
+  padding: 25px !important;
+  border-radius: 10px;
+}
+
+/* Texto de títulos */
+.proyecto23 h2,
+.proyecto23 h3,
+.proyecto23 h4,
+.proyecto23 h5 {
+  color: #000000 !important; /* naranja quemado */
+  font-weight: 700 !important;
+}
+
+/* Labels */
+.proyecto23 label,
+.proyecto23 .small {
+  color: #8A3A00 !important;
+  font-weight: 600 !important;
+}
+
+/* Inputs */
+.proyecto23 input[type="number"] {
+  background: #FFF0D9 !important;
+  border: 2px solid #E67E22 !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  color: #8A3A00 !important;
+}
+
+/* Cards internas */
+.proyecto23 .card {
+  background: #f8f8f7 !important;
+  border: 2px solid #E0A060 !important;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.15) !important;
+}
+
+/* Texto normal */
+.proyecto23 p,
+.proyecto23 li,
+.proyecto23 .card-body,
+.proyecto23 .dash-text {
+  color: #8A3A00 !important;
+}
+
+/* Resultado del pico */
+.proyecto23 #sir-result,
+.proyecto23 #sir-result-p22,
+.proyecto23 #sir-result-p23 {
+  color: #C0392B !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+/* Gráfica Plotly */
+.proyecto23 .js-plotly-plot .plotly {
+  background: white !important;
+}
+
+.proyecto23 .js-plotly-plot .bg {
+  fill: white !important;
+}
+
+.proyecto23 .js-plotly-plot text {
+  fill: #333 !important;
+}

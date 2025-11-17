@@ -99,13 +99,13 @@ layout = html.Div(
                             children=[
                                 html.H3("⚡ ACTUALIZACIÓN DE PÁGINA", className="about-card-title"),
                                 html.Ul([
-                                    html.Li("Se Agrego Modelo SIR y SEIR"),
-                                    html.Li("Las graficas SIR y SEIR en estos nuevos modelos se actualizan en tiempo real conforme uno mueve los valores"),
-                                    html.Li("Las graficas SIR y SEIR traen interpretacion que te actualiza conforme la grafica cambia en tiempo real"),
+                                    html.Li("Se implemento API publica con informacion del dolar por la SUNAT"),
+                                    html.Li("Se integro las paginas faltantes de trabajo realizado en clase"),
+                                    html.Li("Se agrego paginas del PROYECTO - GRUPO 01"),
 
                                 ]),
                                 html.Small(
-                                    "Última actualización: 03 de Noviembre 2025",
+                                    "Última actualización: 17 de Noviembre 2025",
                                     className="update-date"
                                 ),
                             ],

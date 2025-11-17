@@ -1,0 +1,184 @@
+/* ============================================================
+   su.css — Tema Gruvbox Premium (Pag7 / Pag8 Style)
+   Compatible con: COVID Dashboard, SUNAT Dashboard, Clima
+   ============================================================ */
+
+/* ---------- Colores Gruvbox ---------- */
+:root {
+  --g-bg: rgb(40, 40, 40);               /* fondo general */
+  --g-panel: rgb(50, 48, 47);            /* fondo tarjetas y gráficos */
+  --g-border: rgb(80, 73, 69);           /* bordes */
+  --g-text: rgb(213, 196, 161);          /* beige */
+  --g-gold: rgb(250, 189, 47);           /* dorado */
+  --g-blue: rgb(131, 165, 152);          /* azul suave */
+  --g-red: rgb(204, 36, 29);             /* rojo */
+}
+
+/* ---------- Layout general ---------- */
+.page-container,
+.page8-container {
+  background-color: var(--g-bg);
+  color: var(--g-text);
+  font-family: "Outfit", sans-serif;
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+  .page-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* ---------- Columnas ---------- */
+.content.left {
+  flex: 1.1;
+  min-width: 350px;
+}
+
+.content.right {
+  flex: 2;
+}
+
+/* ---------- Títulos ---------- */
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--g-gold);
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+/* ---------- Input group (bloques a la izquierda) ---------- */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: var(--g-text);
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ---------- Dropdown tipo iOS Gruvbox ---------- */
+.Select-control,
+.Select-control:hover {
+  background-color: var(--g-panel) !important;
+  border: 1px solid var(--g-border) !important;
+  color: var(--g-text) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+.Select-placeholder,
+.Select-value-label {
+  color: var(--g-text) !important;
+}
+
+.VirtualizedSelectOption {
+  background-color: var(--g-panel) !important;
+  color: var(--g-text) !important;
+}
+
+.VirtualizedSelectFocusedOption {
+  background-color: rgb(70, 65, 60) !important;
+  color: var(--g-gold) !important;
+}
+
+/* ---------- Dropdown en general ---------- */
+.dropdown-clima .Select-menu-outer {
+  background-color: var(--g-panel) !important;
+  border: 1px solid var(--g-border);
+}
+
+/* ---------- Botón Gruvbox amarillo ---------- */
+.btn-generar {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--g-gold);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-generar:hover {
+  filter: brightness(1.15);
+}
+
+/* ---------- Caja de estado actualizado ---------- */
+.clima-info-box {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: rgb(70, 65, 60);
+  color: var(--g-gold);
+  border-left: 4px solid var(--g-gold);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* ---------- Tarjetas a la derecha ---------- */
+.clima-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.clima-card {
+  flex: 1;
+  min-width: 150px;
+  background-color: var(--g-panel);
+  border: 1px solid var(--g-border);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+  transition: transform 0.2s;
+}
+
+.clima-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- Texto dentro de tarjetas ---------- */
+.card-title {
+  font-size: 14px;
+  color: var(--g-blue);
+  margin-bottom: 6px;
+}
+
+.card-value {
+  font-size: 26px;
+  color: var(--g-gold);
+  font-weight: 700;
+}
+
+/* ---------- Gráfico Plotly ---------- */
+.js-plotly-plot .plotly, 
+.js-plotly-plot .plot-container {
+  background-color: var(--g-panel) !important;
+}
+
+/* Ajuste de fondo alrededor */
+#grafica-covid,
+#grafica-clima,
+#grafica-sunat {
+  background-color: var(--g-panel) !important;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+/* ---------- Scroll suave ---------- */
+html {
+  scroll-behavior: smooth;
+}
