@@ -3,14 +3,9 @@ from dash import html, dcc, Input, Output, callback
 import numpy as np
 import plotly.graph_objects as go
 
-# ==================================================
-# Registro de página
-# ==================================================
 dash.register_page(__name__, path='/pagina4', name='Pagina 4')
 
-# ==================================================
-# Layout — Modelo SIR
-# ==================================================
+
 layout = html.Div([
     # ------------------------- IZQUIERDA -------------------------
     html.Div([
