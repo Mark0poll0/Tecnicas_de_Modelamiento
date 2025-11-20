@@ -1,11 +1,4 @@
-/* ===========================================================
-   PAGE3.CSS — Página 3: Modelo Exponencial Interactivo
-   -----------------------------------------------------------
-   Incluye:
-   - Layout ampliado con .page3-container
-   - Estilo de sliders Dash rc-slider
-   - Inputs numéricos y botón “Generar gráfica”
-   =========================================================== */
+
 
 /* ---------- LAYOUT PRINCIPAL ---------- */
 .page3-container {
@@ -16,7 +9,6 @@
   padding: 48px 24px;
   max-width: 1750px;
   margin: 0 auto;
-  /* AÑADIDO: Permite que los elementos se envuelvan si no hay espacio, mejorando la fluidez */
   flex-wrap: wrap; 
 }
 
@@ -40,20 +32,19 @@
   padding: 28px 32px;
 }
 
-/* ---------- RESPONSIVE (CORREGIDO) ---------- */
+/* ---------- RESPONSIVE (CORREGIDO :v) ---------- */
 @media (max-width: 900px) {
   .page3-container {
     flex-direction: column;
     gap: 24px;
-    /* CORRECCIÓN: Se reduce el padding en los lados para pantallas pequeñas */
+    
     padding: 24px 16px; 
-    /* CORRECCIÓN: Se asegura que los items se estiren para ocupar el ancho */
+    
     align-items: stretch; 
   }
 
   .page3-container .content.left,
   .page3-container .content.right {
-    /* CORRECCIÓN: Se redefine 'flex-basis' para que cada elemento ocupe el 100% del ancho en la columna */
     flex-basis: 100%; 
     max-width: 100%;
   }

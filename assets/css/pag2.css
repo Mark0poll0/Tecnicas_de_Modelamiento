@@ -1,11 +1,3 @@
-/* ===========================================================
-   🌿 PAGE2.CSS — Página 2: Modelo Logístico y Capacidad de Carga
-   -----------------------------------------------------------
-   Incluye:
-   - Efectos de color azul-dorado
-   - Sombra y profundidad diferenciada
-   - Tipografía y bordes refinados
-   =========================================================== */
 
 /* ---------- ESTRUCTURA LOCAL ---------- */
 .page-container {
@@ -91,10 +83,10 @@
 
 @media (max-width: 900px) {
   .page-container {
-    flex-direction: column;        /* ⬅️ igual que en base.css */
+    flex-direction: column;        
   }
   .page-container .content.left,
   .page-container .content.right {
-    width: 100%;                   /* ⬅️ ocupa todo el ancho */
+    width: 100%;                   
   }
 }
